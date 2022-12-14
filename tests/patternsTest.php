@@ -7,14 +7,16 @@ use \Upgrader\Patterns\Registry;
 
 class PatternsTest extends TestCase 
 {
+    /**
+     * @covers Patterns
+     */
     public function testPatternRegistry(): void
     {
         Registry::set('name', 'First product');  
-        $this->assertSame('first product', Registry::get('name'));
+        $this->assertSame('First product', Registry::get('name'));
 
         Registry::removeRegistry('name');
 
-        $this->assertSame('sss', Registry::get('name'));
-        
+        $this->assertEmpty(Registry::get('name'));
     }
 }
